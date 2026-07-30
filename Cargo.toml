@@ -1,0 +1,32 @@
+[package]
+name = "rust_autoclicker"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = { version = "0.27.2", default-features = false, features = [
+    "default_fonts",
+    "glow",
+] }
+egui = "0.27.2"
+rdev = "0.5.0"
+parking_lot = "0.12"
+windows = { version = "0.52.0", features = ["Win32_Foundation", "Win32_UI_WindowsAndMessaging", "Win32_UI_Input_KeyboardAndMouse"] }
+image = { version = "0.25.10", features = ["png"] }
+
+[build-dependencies]
+winres = "0.1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
